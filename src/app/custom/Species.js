@@ -3,6 +3,8 @@ import EventEmitter from "eventemitter3";
 
 export default class Species extends EventEmitter {
     constructor() {
+        super();
+
         this.name = null;
         this.classification = null;
     }

@@ -33,8 +33,12 @@ export default class Application extends EventEmitter {
   async init() {
     // Initiate classes and wait for async operations here.
 
-    this.data.universe = new StarWarsUniverse(config.MAX_SPECIES);
-    await this.data.universe.createSpecies().then(() => this.emit(Application.events.APP_READY));
+    this.data.universe = await new StarWarsUniverse(config.MAX_SPECIES);
+    const that = this;
+
+    this.data.universe.createSpecies().then(function () {
+      that.emit(Application.events.APP_READY);
+    });
 
   }
 }
