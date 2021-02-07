@@ -15,11 +15,11 @@ export default class StarWarsUniverse extends EventEmitter {
         return this.species.length;
     }
 
-    createSpecies() {
+    async createSpecies() {
         for (let speciesCount = 1; speciesCount <= this._maxSpecies; speciesCount++) {
             const speciesInstance = new Species();
             speciesInstance.addListener('SPECIES_CREATED', this._onSpeciesCreated(speciesInstance));
-            speciesInstance.init('https://swapi.booost.bg/api/species/' + speciesCount);
+            await speciesInstance.init('https://swapi.booost.bg/api/species/' + speciesCount);
         }
     }
 
