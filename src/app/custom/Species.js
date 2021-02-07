@@ -1,4 +1,4 @@
-import EventEmitter from "eventemitter3";
+import EventEmitter from 'eventemitter3';
 
 
 export default class Species extends EventEmitter {
@@ -14,8 +14,9 @@ export default class Species extends EventEmitter {
     }
 
     async init(url) {
-        let fetchedData = await fetch(url);
-        let speciesData = await fetchedData.json();
+        const fetchedData = await fetch(url);
+        const speciesData = await fetchedData.json();
+
         this.name = speciesData.name;
         this.classification = speciesData.classification;
         this.emit('SPECIES_CREATED');
