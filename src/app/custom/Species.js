@@ -19,6 +19,6 @@ export default class Species extends EventEmitter {
 
         this.name = speciesData.name;
         this.classification = speciesData.classification;
-        this.emit('SPECIES_CREATED');
+        this.emit(Species.events.SPECIES_CREATED);
     }
 }
